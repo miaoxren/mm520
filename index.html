@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>情人节爱心背景</title>
+    <title>敏敏我爱你</title>
 
     <style>
         body {
@@ -10,7 +10,7 @@
             margin: 0;
         }
 
-        h1 {
+		#text-container {
             position: fixed;
             top: 40%;
             left: 0;
@@ -34,7 +34,7 @@
 <body>
 
 <canvas></canvas>
-<h1>敏敏我爱你！</h1>
+<h1 id="text-container"></h1>
 
 <script>
     var canvas = document.querySelector("canvas"),
@@ -129,6 +129,21 @@
     window.addEventListener("touchmove", onMove);
     window.addEventListener("resize", onResize);
     requestAnimationFrame(render);
+
+	const textContainer = document.getElementById('text-container');
+const message = '敏敏，阿忍爱你！一生一世!!!'; // 要显示的汉字
+let index = 0;
+
+function displayCharacter() {
+    if (index < message.length) {
+        textContainer.textContent += message[index];
+        index++;
+        setTimeout(displayCharacter, 500); // 控制字符间隔，比如每500毫秒显示一个
+    }
+}
+
+displayCharacter();
+	
 </script>
 
 </body>
